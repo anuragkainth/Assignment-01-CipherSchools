@@ -29,7 +29,3 @@ https://drive.google.com/file/d/1j69WJr5sC_hy3UafkjsnApaSYD12rcAz/view?usp=shari
 - Light/dark mode toggle
 - User Friendly Design
 - Cross platform
-![Screenshot_20230407-234320]()
-![Screenshot_20230407-234343]()
-![Screenshot_20230407-234400]()
-
