@@ -663,24 +663,22 @@ class _CoursePageState extends State<CoursePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              MaterialButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: BottomNavButton(
-                      icon: Icons.home, text: 'Home', isDarkMode: _isDarkMode)),
+              BottomNavButton(
+                  icon: Icons.home, text: 'Home', isDarkMode: _isDarkMode, origin: 'course'),
               BottomNavButton(
                   icon: Icons.laptop_chromebook,
                   text: 'Courses',
-                  isDarkMode: _isDarkMode),
+                  isDarkMode: _isDarkMode, origin: 'null'),
               BottomNavButton(
                   icon: Icons.explore,
                   text: 'Trending',
-                  isDarkMode: _isDarkMode),
+                  isDarkMode: _isDarkMode,
+                  origin: 'null'),
               BottomNavButton(
                   icon: Icons.person,
                   text: 'My Profile',
-                  isDarkMode: _isDarkMode),
+                  isDarkMode: _isDarkMode,
+                  origin: 'null'),
             ],
           ),
         ),

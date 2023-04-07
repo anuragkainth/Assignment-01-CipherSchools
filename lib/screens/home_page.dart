@@ -336,18 +336,10 @@ class _HomePageState extends State<HomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            BottomNavButton(icon: Icons.home, text: 'Home',isDarkMode: false),
-            MaterialButton(
-              onPressed:(){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CoursePage()),
-                );
-              },
-                child: BottomNavButton(icon: Icons.laptop_chromebook, text: 'Courses',isDarkMode: false)
-            ),
-            BottomNavButton(icon: Icons.explore, text: 'Trending',isDarkMode: false),
-            BottomNavButton(icon: Icons.person, text:  'My Profile',isDarkMode: false),
+            BottomNavButton(icon: Icons.home, text: 'Home',isDarkMode: false, origin: 'null'),
+            BottomNavButton(icon: Icons.laptop_chromebook, text: 'Courses',isDarkMode: false, origin: 'home'),
+            BottomNavButton(icon: Icons.explore, text: 'Trending',isDarkMode: false, origin: 'null'),
+            BottomNavButton(icon: Icons.person, text:  'My Profile',isDarkMode: false, origin: 'null'),
         ])
       ),
     );
