@@ -7,6 +7,9 @@ Computer Science undergrad 2024 |
 Dr. Akhilesh Das Gupta Institute of Technology & Management | 
 New Delhi, India
 
+## App Download link
+https://drive.google.com/file/d/1j69WJr5sC_hy3UafkjsnApaSYD12rcAz/view?usp=sharing
+
 ## Screenshots
 <p align="left">
   <img src="https://user-images.githubusercontent.com/94080341/230655073-aadca3bc-0f84-4c02-972d-01fc01e358ed.png" width="200"  />
