@@ -1,16 +1,31 @@
-# cipher_schools
 
-A new Flutter project.
+# CipherSchool App Demo Assignment
 
-## Getting Started
+Made by:
+Anurag Kainth - Flutter Intern Applicant | 
+Computer Science undergrad 2024 | 
+Dr. Akhilesh Das Gupta Institute of Technology & Management | 
+New Delhi, India
 
-This project is a starting point for a Flutter application.
+## App Download link
+https://drive.google.com/file/d/1j69WJr5sC_hy3UafkjsnApaSYD12rcAz/view?usp=sharing
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
+<p align="left">
+  <img src="https://user-images.githubusercontent.com/94080341/230658309-44083a80-1553-45f0-a721-f5a594c6ed12.png" width="200"  />
+  <img src="https://user-images.githubusercontent.com/94080341/230658359-2cc5e4cf-70fd-4119-ad34-e919f07f5e47.png" width="200"  />
+  <img src="https://user-images.githubusercontent.com/94080341/230658437-e387cac6-8a6e-4de6-9e66-81cddb788257.png" width="200"  />
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<p align="left">
+  <img src="https://user-images.githubusercontent.com/94080341/230655326-2a992661-d2c8-4f7f-9ce2-f5993124467b.png" width="200" />
+  <img src="https://user-images.githubusercontent.com/94080341/230655423-29dcaa2b-1ff8-4315-89c7-60bc68fe35ae.png" width="200"  />
+  <img src="https://user-images.githubusercontent.com/94080341/230655601-119041da-64ca-41de-ba4f-8de3aadcb4aa.png" width="200" />
+</p>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Features
+
+- Light/dark mode toggle
+- User Friendly Design
+- Cross platform
