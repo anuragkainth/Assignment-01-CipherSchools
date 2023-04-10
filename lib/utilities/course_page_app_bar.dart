@@ -27,7 +27,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           Row(
             children: [
               Image.asset(
-                kCipherScoolsIcon,
+                kCipherSchoolsIcon,
                 scale: 8,
               ),
               SizedBox(width: 10,),// Replace with company icon

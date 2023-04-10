@@ -1,3 +1,6 @@
+import 'package:cipher_schools/utilities/copyright_area.dart';
+import 'package:cipher_schools/utilities/course_page_slider.dart';
+import 'package:cipher_schools/utilities/course_page_subheading.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cipher_schools/utilities/course_page_app_bar.dart';
@@ -14,8 +17,6 @@ class CoursePage extends StatefulWidget {
 class _CoursePageState extends State<CoursePage> {
   bool _isDarkMode = false;
 
-  final PageController _pageController = PageController();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,7 +27,7 @@ class _CoursePageState extends State<CoursePage> {
       ),
       home: Scaffold(
         appBar: MyAppBar(
-          title: 'CiphlerSchools',
+          title: 'CipherSchools',
           isDarkMode: _isDarkMode,
           onToggleTheme: () {
             setState(() {
@@ -34,614 +35,66 @@ class _CoursePageState extends State<CoursePage> {
             });
           },
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.width / 2,
-                child: Stack(
+        body: Container(
+          color: Color(0xffF2F5FA),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CourseImageSlider(widthAdjust: 1, heightAdjust: 1/2),
+                SizedBox(height: 30),
+                CoursePageSubheading(text: 'Recommended Course'),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    PageView.builder(
-                      controller: _pageController,
-                      itemCount: courseImages.length,
-                      itemBuilder: (context, index) {
-                        return SizedBox(
-                          width: double.infinity,
-                          child: Image.asset(
-                            courseImages[index],
-                            fit: BoxFit.cover,
-                          ),
-                        );
-                      },
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 0,
-                      bottom: 0,
-                      child: GestureDetector(
-                        onTap: () {
-                          _pageController.previousPage(
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        },
-                        child: Container(
-                          width: 50,
-                          color: Colors.black26,
-                          child: Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      right: 0,
-                      top: 0,
-                      bottom: 0,
-                      child: GestureDetector(
-                        onTap: () {
-                          _pageController.nextPage(
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        },
-                        child: Container(
-                          width: 50,
-                          color: Colors.black26,
-                          child: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
+                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
+                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
                   ],
                 ),
-              ),
-              SizedBox(height: 30),
-              Padding(
-                padding: EdgeInsets.only(left: 13.0),
-                child: Text(
-                  'Recommended Course',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                SizedBox(
+                  height: 30,
                 ),
-              ),
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 5 / 11,
-                    height: MediaQuery.of(context).size.width / 2,
-                    child: Stack(
-                      children: [
-                        PageView.builder(
-                          controller: _pageController,
-                          itemCount: courseImages.length,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              // decoration: BoxDecoration(
-                              //   borderRadius: BorderRadius.circular(10), // 10 is the radius of the rounded edges
-                              //   color: Colors.grey[200],
-                              // ),
-                              width: double.infinity,
-                              child: Image.asset(
-                                courseImages[index],
-                                fit: BoxFit.cover,
-                              ),
-                            );
-                          },
-                        ),
-                        Positioned(
-                          left: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.previousPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              child: Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.nextPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 5 / 11,
-                    height: MediaQuery.of(context).size.width / 2,
-                    child: Stack(
-                      children: [
-                        PageView.builder(
-                          controller: _pageController,
-                          itemCount: courseImages.length,
-                          itemBuilder: (context, index) {
-                            return SizedBox(
-                              width: double.infinity,
-                              child: Image.asset(
-                                courseImages[index],
-                                fit: BoxFit.cover,
-                              ),
-                            );
-                          },
-                        ),
-                        Positioned(
-                          left: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.previousPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              child: Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.nextPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 13.0),
-                child: Text(
-                  'Latest Videos',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 5 / 11,
-                    height: MediaQuery.of(context).size.width / 2,
-                    child: Stack(
-                      children: [
-                        PageView.builder(
-                          controller: _pageController,
-                          itemCount: courseImages.length,
-                          itemBuilder: (context, index) {
-                            return SizedBox(
-                              width: double.infinity,
-                              child: Image.asset(
-                                courseImages[index],
-                                fit: BoxFit.cover,
-                              ),
-                            );
-                          },
-                        ),
-                        Positioned(
-                          left: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.previousPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              child: Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.nextPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 5 / 11,
-                    height: MediaQuery.of(context).size.width / 2,
-                    child: Stack(
-                      children: [
-                        PageView.builder(
-                          controller: _pageController,
-                          itemCount: courseImages.length,
-                          itemBuilder: (context, index) {
-                            return SizedBox(
-                              width: double.infinity,
-                              child: Image.asset(
-                                courseImages[index],
-                                fit: BoxFit.cover,
-                              ),
-                            );
-                          },
-                        ),
-                        Positioned(
-                          left: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.previousPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              child: Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.nextPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 13.0),
-                child: Text(
-                  'Popular Categories',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 5 / 11,
-                    height: MediaQuery.of(context).size.width / 2,
-                    child: Stack(
-                      children: [
-                        PageView.builder(
-                          controller: _pageController,
-                          itemCount: courseImages.length,
-                          itemBuilder: (context, index) {
-                            return SizedBox(
-                              width: double.infinity,
-                              child: Image.asset(
-                                courseImages[index],
-                                fit: BoxFit.cover,
-                              ),
-                            );
-                          },
-                        ),
-                        Positioned(
-                          left: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.previousPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              child: Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.nextPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 5 / 11,
-                    height: MediaQuery.of(context).size.width / 2,
-                    child: Stack(
-                      children: [
-                        PageView.builder(
-                          controller: _pageController,
-                          itemCount: courseImages.length,
-                          itemBuilder: (context, index) {
-                            return SizedBox(
-                              width: double.infinity,
-                              child: Image.asset(
-                                courseImages[index],
-                                fit: BoxFit.cover,
-                              ),
-                            );
-                          },
-                        ),
-                        Positioned(
-                          left: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.previousPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              child: Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.nextPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 13.0),
-                child: Text(
-                  'All Courses',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * 10 / 11,
-                    height: MediaQuery.of(context).size.width / 2,
-                    child: Stack(
-                      children: [
-                        PageView.builder(
-                          controller: _pageController,
-                          itemCount: courseImages.length,
-                          itemBuilder: (context, index) {
-                            return SizedBox(
-                              width: double.infinity,
-                              child: Image.asset(
-                                courseImages[index],
-                                fit: BoxFit.cover,
-                              ),
-                            );
-                          },
-                        ),
-                        Positioned(
-                          left: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.previousPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              color: Colors.black26,
-                              child: Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 0,
-                          top: 0,
-                          bottom: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pageController.nextPage(
-                                duration: Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              color: Colors.black26,
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              //  copyrightArea widget
-              Container(
-                padding: EdgeInsets.only(top: 15),
-                // color: Color(0xffF2F5FA),
-                width: double.infinity,
-                height: 160,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                CoursePageSubheading(text: 'Latest Videos'),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text('© 2020 CipherSchools • All Rights Reserved'),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(FontAwesomeIcons.discord),
-                        SizedBox(
-                          width: 18,
-                        ),
-                        Icon(FontAwesomeIcons.instagram),
-                        SizedBox(
-                          width: 18,
-                        ),
-                        Icon(FontAwesomeIcons.linkedin),
-                        SizedBox(
-                          width: 18,
-                        ),
-                        Icon(FontAwesomeIcons.github),
-                        SizedBox(
-                          width: 18,
-                        ),
-                        Icon(FontAwesomeIcons.facebook),
-                        SizedBox(
-                          width: 18,
-                        ),
-                        Icon(FontAwesomeIcons.twitter),
-                      ],
-                    ),
+                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
+                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
                   ],
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 30,
+                ),
+                CoursePageSubheading(text: 'Popular Categories'),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
+                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                CoursePageSubheading(text: 'All Courses'),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
+                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                //  copyrightArea widget
+                CopyRightArea(adjust: EdgeInsets.only(top: 15)),
+              ],
+            ),
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

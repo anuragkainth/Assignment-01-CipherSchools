@@ -9,6 +9,7 @@ import 'package:cipher_schools/utilities/bottom_floating_button.dart';
 import 'package:cipher_schools/utilities/constants.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:cipher_schools/utilities/copyright_area.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           children: [
             Image.asset(
-              kCipherScoolsIcon,
+              kCipherSchoolsIcon,
               scale: 8,
             ), // Replace with company icon
             SizedBox(width: 10),
@@ -310,7 +311,7 @@ class _HomePageState extends State<HomePage> {
             ),
 
             // Calling copyrightArea widget from constants file
-            copyrightArea,
+        CopyRightArea(adjust: EdgeInsets.only(top: 15)),
           ],
         ),
       ),

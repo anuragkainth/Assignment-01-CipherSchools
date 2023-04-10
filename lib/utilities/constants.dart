@@ -27,50 +27,7 @@ const List<Map<String, String>> kDataStatsOfGrid = [
   // {'heading': '110+', 'subheading': 'Programs available'},
 ];
 
-const String kCipherScoolsIcon = 'images/icon.png';
-
- Widget copyrightArea = Container(
-  padding: EdgeInsets.only(top: 15),
-  color: Color(0xffF2F5FA),
-  width: double.infinity,
-  height: 160,
-  child: Column(
-    mainAxisAlignment: MainAxisAlignment.start,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      Text('© 2020 CipherSchools • All Rights Reserved'),
-      SizedBox(height: 10,),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-              FontAwesomeIcons.discord
-          ),
-          SizedBox(width: 18,),
-          Icon(
-              FontAwesomeIcons.instagram
-          ),
-          SizedBox(width: 18,),
-          Icon(
-              FontAwesomeIcons.linkedin
-          ),
-          SizedBox(width: 18,),
-          Icon(
-              FontAwesomeIcons.github
-          ),
-          SizedBox(width: 18,),
-          Icon(
-              FontAwesomeIcons.facebook
-          ),
-          SizedBox(width: 18,),
-          Icon(
-              FontAwesomeIcons.twitter
-          ),
-        ],
-      ),
-    ],
-  ),
-);
+const String kCipherSchoolsIcon = 'images/icon.png';
 
 final List<String> courseImages = [
   'images/dart.jpg',
