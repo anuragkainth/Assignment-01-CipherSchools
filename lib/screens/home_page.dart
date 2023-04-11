@@ -1,14 +1,11 @@
-import 'package:cipher_schools/screens/courses_page.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter_social_button/flutter_social_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cipher_schools/utilities/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
 import 'package:cipher_schools/utilities/bottom_floating_button.dart';
-import 'package:cipher_schools/utilities/constants.dart';
-import 'package:flutter_social_button/flutter_social_button.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cipher_schools/utilities/copyright_area.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,6 +44,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
         title: Row(
           children: [
             Image.asset(
@@ -56,15 +54,21 @@ class _HomePageState extends State<HomePage> {
             SizedBox(width: 10),
             Text(
               'CipherSchools',
-              style: TextStyle(color: Colors.black),
+              style: GoogleFonts.openSans(
+                textStyle: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18
+                )
+              ),
             ),
           ],
         ),
         actions: [
           IconButton(
             icon: Icon(
-              Icons.segment,
-              size: 40,
+              FontAwesomeIcons.bars,
+              size: 30,
               color: Colors.black,
             ),
             onPressed: () {},
@@ -82,19 +86,25 @@ class _HomePageState extends State<HomePage> {
               textAlign: TextAlign.center,
               text: TextSpan(
                 text: 'Welcome to',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 45,
-                  fontWeight: FontWeight.bold,
+                style: GoogleFonts.openSans(
+                  textStyle: TextStyle(
+                    color: Colors.black,
+                    fontSize: 42,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 children: <TextSpan>[
                   TextSpan(
                     text: ' the Future',
-                    style: TextStyle(color: kDefaultOrangeColor),
+                    style: GoogleFonts.openSans(
+                      textStyle: TextStyle(color: kDefaultOrangeColor, fontWeight: FontWeight.bold, fontSize: 42),
+                    ),
                   ),
                   TextSpan(
                     text: ' of Learning!',
-                    style: TextStyle(color: Colors.black),
+                    style:  GoogleFonts.openSans(
+                      textStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 42),
+                    ),
                   ),
                 ],
               ),
@@ -106,20 +116,24 @@ class _HomePageState extends State<HomePage> {
             Text(
               'Start Learning by best creators for',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.normal,
+              style: GoogleFonts.openSans(
+                textStyle:  TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black87
+                ),
               ),
             ),
 
             // absolutely free type writter text
             DefaultTextStyle(
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20.0,
-                fontFamily: 'Agne',
-                fontWeight: FontWeight.normal,
-                color: kDefaultOrangeColor,
+              style: GoogleFonts.openSans(
+                textStyle:  TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w500,
+                    color: kDefaultOrangeColor
+                ),
               ),
               child: AnimatedTextKit(
                 repeatForever: true,
@@ -150,11 +164,13 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Text(
                             'Start Learning Now ',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                            ),
+                            style: GoogleFonts.openSans(
+                              textStyle: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              ),
+                            )
                           ),
                           Icon(
                             Icons.east,
@@ -234,21 +250,25 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           kDataStatsOfGrid[index]['heading']!,
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 40.0,
-                            color: Colors.orange,
-                            fontWeight: FontWeight.bold
-                          ),
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                                fontSize: 40.0,
+                                color: Colors.orange,
+                                fontWeight: FontWeight.bold
+                            ),
+                          )
                         ),
                         SizedBox(height: 8.0),
                         Text(
                           kDataStatsOfGrid[index]['subheading']!,
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.black,
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                              fontSize: 16.0,
+                              color: Colors.black,
 
-                          ),
+                            ),
+                          )
                         ),
                       ],
                     ),
@@ -261,7 +281,9 @@ class _HomePageState extends State<HomePage> {
 
             Text(
               'Our Expert Mentors',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              style: GoogleFonts.openSans(
+                textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              )
             ),
             SizedBox(height: 10),
             SizedBox(
@@ -300,7 +322,9 @@ class _HomePageState extends State<HomePage> {
                             ),
                             SizedBox(height: 20,),
                             Text(kSliderImagesMentors[index]['name']!,
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
+                            style: GoogleFonts.openSans(
+                              textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),)
+                            ),
                           ],
                         ),
                       ),
@@ -320,7 +344,7 @@ class _HomePageState extends State<HomePage> {
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Container(
-        height: 65,
+        height: 53,
         margin: EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -337,10 +361,11 @@ class _HomePageState extends State<HomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            BottomNavButton(icon: Icons.home, text: 'Home',isDarkMode: false, origin: 'null'),
-            BottomNavButton(icon: Icons.laptop_chromebook, text: 'Courses',isDarkMode: false, origin: 'home'),
-            BottomNavButton(icon: Icons.explore, text: 'Trending',isDarkMode: false, origin: 'null'),
-            BottomNavButton(icon: Icons.person, text:  'My Profile',isDarkMode: false, origin: 'null'),
+            BottomNavButton(icon: Icons.home, text: 'Home',isDarkMode: false, currentPage: 1),
+            BottomNavButton(icon: Icons.laptop_chromebook, text: 'Courses',isDarkMode: false, currentPage: 1),
+            BottomNavButton(icon: Icons.phone_android, text: 'Shorts',isDarkMode: false, currentPage: 1),
+            BottomNavButton(icon: Icons.explore, text: 'Trending',isDarkMode: false, currentPage: 1),
+            BottomNavButton(icon: Icons.person, text:  'My Profile',isDarkMode: false, currentPage: 1),
         ])
       ),
     );

@@ -1,13 +1,13 @@
 import 'package:cipher_schools/utilities/copyright_area.dart';
 import 'package:cipher_schools/utilities/course_page_slider.dart';
 import 'package:cipher_schools/utilities/course_page_subheading.dart';
+import 'package:cipher_schools/utilities/course_page_upper_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cipher_schools/utilities/course_page_app_bar.dart';
 import 'package:cipher_schools/utilities/bottom_floating_button.dart';
-import 'package:cipher_schools/utilities/constants.dart';
 import 'package:flutter/services.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cipher_schools/utilities/new_trending_icons.dart';
+import 'package:cipher_schools/utilities/all_courses_list.dart';
 
 class CoursePage extends StatefulWidget {
   @override
@@ -15,17 +15,28 @@ class CoursePage extends StatefulWidget {
 }
 
 class _CoursePageState extends State<CoursePage> {
-  bool _isDarkMode = false;
 
+  void dispose() {
+    // Re-enable landscape orientation when the page is disposed
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
+    super.dispose();
+  }
+  bool _isDarkMode = false;
+  int _currentImageIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'My App',
-      theme: ThemeData(
-        brightness: _isDarkMode ? Brightness.dark : Brightness.light,
-      ),
-      home: Scaffold(
+
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
+    return Scaffold(
         appBar: MyAppBar(
           title: 'CipherSchools',
           isDarkMode: _isDarkMode,
@@ -36,20 +47,32 @@ class _CoursePageState extends State<CoursePage> {
           },
         ),
         body: Container(
-          color: Color(0xffF2F5FA),
+          color: Colors.white,
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CourseImageSlider(widthAdjust: 1, heightAdjust: 1/2),
+                CourseImageUpperSlider(
+                  widthAdjust: 1,
+                  heightAdjust: 1 / 2,
+                  edgeRoundAdjust: 0,
+                ),
                 SizedBox(height: 30),
-                CoursePageSubheading(text: 'Recommended Course'),
+                CoursePageSubheading(text: 'Recommended Courses'),
                 SizedBox(height: 10),
+                NewTrendingIcons(),
+                SizedBox(height: 4),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
-                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
+                    CourseImageSlider(
+                        widthAdjust: 5 / 11,
+                        heightAdjust: 1 / 2,
+                        edgeRoundAdjust: 7),
+                    CourseImageSlider(
+                        widthAdjust: 5 / 11,
+                        heightAdjust: 1 / 2,
+                        edgeRoundAdjust: 7),
                   ],
                 ),
                 SizedBox(
@@ -57,11 +80,19 @@ class _CoursePageState extends State<CoursePage> {
                 ),
                 CoursePageSubheading(text: 'Latest Videos'),
                 SizedBox(height: 10),
+                NewTrendingIcons(),
+                SizedBox(height: 4),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
-                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
+                    CourseImageSlider(
+                        widthAdjust: 5 / 11,
+                        heightAdjust: 1 / 2,
+                        edgeRoundAdjust: 7),
+                    CourseImageSlider(
+                        widthAdjust: 5 / 11,
+                        heightAdjust: 1 / 2,
+                        edgeRoundAdjust: 7),
                   ],
                 ),
                 SizedBox(
@@ -69,11 +100,19 @@ class _CoursePageState extends State<CoursePage> {
                 ),
                 CoursePageSubheading(text: 'Popular Categories'),
                 SizedBox(height: 10),
+                NewTrendingIcons(),
+                SizedBox(height: 4),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
-                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
+                    CourseImageSlider(
+                        widthAdjust: 5 / 11,
+                        heightAdjust: 1 / 2,
+                        edgeRoundAdjust: 7),
+                    CourseImageSlider(
+                        widthAdjust: 5 / 11,
+                        heightAdjust: 1 / 2,
+                        edgeRoundAdjust: 7),
                   ],
                 ),
                 SizedBox(
@@ -81,13 +120,9 @@ class _CoursePageState extends State<CoursePage> {
                 ),
                 CoursePageSubheading(text: 'All Courses'),
                 SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
-                    CourseImageSlider(widthAdjust: 5/11, heightAdjust: 1/2),
-                  ],
-                ),
+                AllCourses(),
+                SizedBox(height: 10),
+                AllCourses(),
                 SizedBox(
                   height: 10,
                 ),
@@ -99,7 +134,7 @@ class _CoursePageState extends State<CoursePage> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Container(
-          height: 65,
+          height: 53,
           margin: EdgeInsets.symmetric(horizontal: 16),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -117,25 +152,46 @@ class _CoursePageState extends State<CoursePage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               BottomNavButton(
-                  icon: Icons.home, text: 'Home', isDarkMode: _isDarkMode, origin: 'course'),
+                  icon: Icons.home,
+                  text: 'Home',
+                  isDarkMode: _isDarkMode,
+                currentPage: 2,
+              ),
               BottomNavButton(
                   icon: Icons.laptop_chromebook,
                   text: 'Courses',
-                  isDarkMode: _isDarkMode, origin: 'null'),
+                  isDarkMode: _isDarkMode,
+                currentPage: 2,
+                  ),
+              BottomNavButton(
+                icon: Icons.phone_android,
+                text: 'Shorts',
+                isDarkMode: _isDarkMode,
+                currentPage: 2,
+              ),
               BottomNavButton(
                   icon: Icons.explore,
                   text: 'Trending',
                   isDarkMode: _isDarkMode,
-                  origin: 'null'),
+                currentPage: 2,
+                  ),
               BottomNavButton(
                   icon: Icons.person,
                   text: 'My Profile',
                   isDarkMode: _isDarkMode,
-                  origin: 'null'),
+                currentPage: 2,
+                  ),
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
+
+// MaterialApp(
+// debugShowCheckedModeBanner: false,
+// title: 'My App',
+// theme: ThemeData(
+// brightness: _isDarkMode ? Brightness.dark : Brightness.light,
+// ),
+// home: 

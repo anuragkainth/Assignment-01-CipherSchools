@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'constants.dart';
 
 class CoursePageSubheading extends StatelessWidget {
@@ -11,7 +12,7 @@ class CoursePageSubheading extends StatelessWidget {
       padding: EdgeInsets.only(left: 13.0),
       child: Text(
         text,
-        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        style: GoogleFonts.openSans(textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),)
       ),
     );
   }

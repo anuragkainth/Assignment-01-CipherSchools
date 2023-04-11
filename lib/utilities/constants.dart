@@ -29,9 +29,16 @@ const List<Map<String, String>> kDataStatsOfGrid = [
 
 const String kCipherSchoolsIcon = 'images/icon.png';
 
-final List<String> courseImages = [
-  'images/dart.jpg',
-  'images/flutter2.png',
-  'images/html.jpg',
+final List<String> upperCourseImages = [
   'images/firebase.png',
+  'images/coding_3.jpg',
+  'images/coding_4.webp',
+  'images/flutter.png'
+];
+
+final List<String> courseImages = [
+  'images/coding_1.png',
+  'images/firebase.png',
+  'images/coding_3.jpg',
+  'images/coding_4.webp',
 ];

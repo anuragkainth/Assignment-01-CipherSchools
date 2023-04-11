@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,7 +19,7 @@ class CopyRightArea extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('© 2020 CipherSchools • All Rights Reserved'),
+          Text('© 2020 CipherSchools • All Rights Reserved', style: GoogleFonts.openSans(),),
           SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

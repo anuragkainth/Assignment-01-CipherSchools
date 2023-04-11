@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
 
 class CourseImageSlider extends StatefulWidget {
@@ -6,10 +7,12 @@ class CourseImageSlider extends StatefulWidget {
     Key? key,
     required this.widthAdjust,
     required this.heightAdjust,
+    required this.edgeRoundAdjust,
   }) : super(key: key);
 
   final double widthAdjust;
   final double heightAdjust;
+  final double edgeRoundAdjust;
 
   @override
   State<CourseImageSlider> createState() => _CourseImageSliderState();
@@ -31,9 +34,128 @@ class _CourseImageSliderState extends State<CourseImageSlider> {
             itemBuilder: (context, index) {
               return SizedBox(
                 width: double.infinity,
-                child: Image.asset(
-                  courseImages[index],
-                  fit: BoxFit.cover,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(widget.edgeRoundAdjust),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Image.asset(
+                          courseImages[index],
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          width: double.infinity,
+                          color: Color(0xffF2F5FA),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(child: SizedBox()),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Container(
+                                      padding: EdgeInsets.all(4),
+                                      color: Color(0xffFEF4EA),
+                                      child: Text(
+                                        'Web Development',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 11,
+                                            color: kDefaultOrangeColor),
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(child: SizedBox()),
+                                ],
+                              ),
+                              Container(
+                                margin:
+                                    EdgeInsets.only(top: 5, left: 7, bottom: 5),
+                                child: Text(
+                                  'HTML language Course',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(left: 7.0, bottom: 3.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'No. of Videos: ',
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                        Text(
+                                          '21',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 10),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Course time: ',
+                                          style: TextStyle(fontSize: 10),
+                                        ),
+                                        Text(
+                                          '2.0 hours',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 10),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 7.0),
+                                child: Row(
+                                  children: [
+                                    CircleAvatar(
+                                      backgroundColor: Colors.blue,
+                                      radius: 14.0,
+                                      child: Image.asset(
+                                          'images/Cipherschools.png'),
+                                    ),
+                                    SizedBox(width: 10),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Cipher Schools',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 13),
+                                        ),
+                                        Text(
+                                          'Instructor',
+                                          style: TextStyle(fontSize: 10),
+                                        )
+                                      ],
+                                    ),
+                                    Expanded(flex: 2, child: SizedBox()),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               );
             },
@@ -53,10 +175,10 @@ class _CourseImageSliderState extends State<CourseImageSlider> {
                 },
                 child: Container(
                   width: 50,
-                  color: Colors.black26,
                   child: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.white,
+                    Icons.chevron_left_sharp,
+                    size: 35,
+                    color: Colors.black26,
                   ),
                 ),
               ),
@@ -77,10 +199,10 @@ class _CourseImageSliderState extends State<CourseImageSlider> {
                 },
                 child: Container(
                   width: 50,
-                  color: Colors.black26,
                   child: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.white,
+                    Icons.chevron_right,
+                    size: 35,
+                    color: Colors.black26,
                   ),
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'constants.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -20,6 +21,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: !isDarkMode ? Colors.white : null,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,7 +33,13 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                 scale: 8,
               ),
               SizedBox(width: 10,),// Replace with company icon
-              Text(title, style: TextStyle(color: Colors.black),),
+              Text(title, style:  GoogleFonts.openSans(
+                  textStyle: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18
+                  )
+              ),),
             ],
           ),
           Row(
