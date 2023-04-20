@@ -1,11 +1,5 @@
 
-# CipherSchool App Demo Assignment
-
-Made by:
-Anurag Kainth - Flutter Intern Applicant | 
-Computer Science undergrad 2024 | 
-Dr. Akhilesh Das Gupta Institute of Technology & Management | 
-New Delhi, India
+# Cipher E-Learning App
 
 ## App Download link
 https://drive.google.com/file/d/1WNyOUZshOZkOkF_lFGMsFwxhuNihD1hR/view?usp=sharing
