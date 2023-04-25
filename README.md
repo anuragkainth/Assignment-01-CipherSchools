@@ -1,9 +1,6 @@
 
 # Cipher E-Learning App
 
-## App Download link
-https://drive.google.com/file/d/1WNyOUZshOZkOkF_lFGMsFwxhuNihD1hR/view?usp=sharing
-
 ## Screenshots
 <p align="left">
   <img src="https://user-images.githubusercontent.com/94080341/231204955-1542cad3-7915-4e44-8667-0f15e26c2c1c.png" width="200"  />
